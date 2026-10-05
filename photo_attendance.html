@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Attendance | Smart Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <h1>Smart Attendance</h1>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/attendance">Attendance</a>
+            <a href="/reports">Reports</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-heading">
+            <div>
+                <h2>Photo Attendance</h2>
+                <p>Recognize enrolled students using the connected camera.</p>
+            </div>
+        </div>
+
+        <section class="card">
+            <h3>Before you start</h3>
+            <p>
+                Make sure students have given permission for their photos to be
+                used in this local project and that their photos have been enrolled.
+            </p>
+            <p>
+                The camera runs on the computer where the Flask app is running.
+                Press Q in the camera window to stop it.
+            </p>
+
+            <form method="POST" action="{{ url_for('photo_attendance') }}">
+                <button type="submit">Start Photo Attendance</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h3>How it works</h3>
+            <p>1. Enroll student photos from the Students page.</p>
+            <p>2. Train the face model.</p>
+            <p>3. Start the camera and check the result on screen.</p>
+            <p>4. Review recorded attendance on the Attendance page.</p>
+        </section>
+
+        <a class="button" href="/attendance">Back to Attendance</a>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
